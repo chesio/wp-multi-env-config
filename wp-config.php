@@ -50,13 +50,13 @@ if (defined('WP_CLI') && WP_CLI && !isset($_SERVER['HTTP_HOST'])) {
 
 // If no environment set at this point, set environment based on hostname
 if (!defined('WP_ENV')) {
-	require_once ABSPATH . 'wp-config/env.php';
+	require ABSPATH . 'wp-config/env.php';
 }
 
 // Load default config
-require_once ABSPATH . 'wp-config/default.php';
+require ABSPATH . 'wp-config/default.php';
 // Load config file for current environment
-require_once ABSPATH . 'wp-config/' . WP_ENV . '.php';
+require ABSPATH . 'wp-config/' . WP_ENV . '.php';
 
 /** End of WordPress Multi-Environment Config **/
 
