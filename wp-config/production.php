@@ -26,7 +26,7 @@ define('DB_HOST', 'localhost');
 define('WP_POST_REVISIONS', 25);
 
 /**
- * There is a cron job set up that runs WP-Cron every hour (always at HH:MM)
- * @link https://manage.edis.at/vhost/cron_view.php
+ * If possible, use system cron to trigger WP Cron execution.
+ * @link https://developer.wordpress.org/plugins/cron/hooking-into-the-system-task-scheduler/
  */
 // define('DISABLE_WP_CRON', true);
