@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Editing_wp-config.php
  * @package WordPress
- * @version 20170601
+ * @version 20170606
  */
 
 /**
@@ -27,11 +27,6 @@
  * Default settings that are common to all environments can exist in wp-config/default.php
  */
 
-/** Absolute path to the WordPress directory. It is defined at the bottom of wp-config-sample.php, but it is needed earlier here. */
-if (!defined('ABSPATH')) {
-	define('ABSPATH', dirname(__FILE__) . '/');
-}
-
 // Try environment variable 'WP_ENV'
 if (getenv('WP_ENV') !== false) {
 	// Filter non-alphabetical characters for security
@@ -50,17 +45,22 @@ if (defined('WP_CLI') && WP_CLI && !isset($_SERVER['HTTP_HOST'])) {
 
 // If no environment set at this point, set environment based on hostname
 if (!defined('WP_ENV')) {
-	require ABSPATH . 'wp-config/env.php';
+	require_once __DIR__ . '/wp-config/env.php';
 }
 
 // Load default config
-require ABSPATH . 'wp-config/default.php';
+require_once __DIR__ . '/wp-config/default.php';
 // Load config file for current environment
-require ABSPATH . 'wp-config/' . WP_ENV . '.php';
+require_once __DIR__ . '/wp-config/' . WP_ENV . '.php';
 
 /** End of WordPress Multi-Environment Config **/
 
 /* That's all, stop editing! Happy blogging. */
+
+/** Absolute path to the WordPress directory. */
+if (!defined('ABSPATH')) {
+	define('ABSPATH', dirname(__FILE__) . '/');
+}
 
 /** Sets up WordPress vars and included files. */
 require_once ABSPATH . 'wp-settings.php';
