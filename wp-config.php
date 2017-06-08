@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Editing_wp-config.php
  * @package WordPress
- * @version 20170606
+ * @version 20170608
  */
 
 /**
@@ -40,7 +40,7 @@ if (defined('WP_CLI') && WP_CLI && !isset($_SERVER['HTTP_HOST'])) {
 	if (!defined('WP_ENV')) {
 		die("WordPress Multi-Environment Config Error: Neither HTTP_HOST nor WP_ENV is defined.\n");
 	}
-	$_SERVER['HTTP_HOST'] = 'wp-cli.org';
+	$_SERVER['HTTP_HOST'] = 'localhost';
 }
 
 // If no environment set at this point, set environment based on hostname
