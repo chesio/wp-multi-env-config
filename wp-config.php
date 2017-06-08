@@ -4,6 +4,7 @@
  *
  * @link https://codex.wordpress.org/Editing_wp-config.php
  * @package WordPress
+ * @requires PHP 5.3
  * @version 20170608
  */
 
