@@ -5,11 +5,11 @@
  * You can define the current environment via:
  * define('WP_ENV', 'production');
  *
- * @version 20170510
+ * @version 20171025
  */
 
 // Define site hostname
-if ( isset($_SERVER['X_FORWARDED_HOST']) && !empty($_SERVER['X_FORWARDED_HOST']) ) {
+if (isset($_SERVER['X_FORWARDED_HOST']) && !empty($_SERVER['X_FORWARDED_HOST'])) {
 	$hostname = $_SERVER['X_FORWARDED_HOST'];
 } else {
 	$hostname = $_SERVER['HTTP_HOST'];
