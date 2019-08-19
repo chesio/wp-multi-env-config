@@ -30,23 +30,23 @@
 
 // Try environment variable 'WP_ENV'
 if (getenv('WP_ENV') !== false) {
-	// Filter non-alphabetical characters for security
-	define('WP_ENV', preg_replace('/[^a-z]/', '', getenv('WP_ENV')));
+    // Filter non-alphabetical characters for security
+    define('WP_ENV', preg_replace('/[^a-z]/', '', getenv('WP_ENV')));
 }
 
 // Make sure HTTP_HOST is defined when running via WP CLI
 // https://make.wordpress.org/cli/handbook/common-issues/#php-notice-undefined-index-on-_server-superglobal
 if (defined('WP_CLI') && WP_CLI && !isset($_SERVER['HTTP_HOST'])) {
-	// Environment must be defined at this point, otherwise hostname detection below will always fall back to production.
-	if (!defined('WP_ENV')) {
-		die("WordPress Multi-Environment Config Error: Neither HTTP_HOST nor WP_ENV is defined.\n");
-	}
-	$_SERVER['HTTP_HOST'] = 'localhost';
+    // Environment must be defined at this point, otherwise hostname detection below will always fall back to production.
+    if (!defined('WP_ENV')) {
+        die("WordPress Multi-Environment Config Error: Neither HTTP_HOST nor WP_ENV is defined.\n");
+    }
+    $_SERVER['HTTP_HOST'] = 'localhost';
 }
 
 // If no environment set at this point, set environment based on hostname
 if (!defined('WP_ENV')) {
-	require_once __DIR__ . '/wp-config/env.php';
+    require_once __DIR__ . '/wp-config/env.php';
 }
 
 // Load default config
@@ -60,7 +60,7 @@ require_once __DIR__ . '/wp-config/' . WP_ENV . '.php';
 
 /** Absolute path to the WordPress directory. */
 if (!defined('ABSPATH')) {
-	define('ABSPATH', dirname(__FILE__) . '/');
+    define('ABSPATH', dirname(__FILE__) . '/');
 }
 
 /** Sets up WordPress vars and included files. */
