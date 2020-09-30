@@ -11,8 +11,8 @@
  * WordPress Multi-Environment Config
  *
  * Loads config file based on current environment, environment can be set
- * in either the environment variable 'WP_ENVIRONMENT_TYPE' or can be set based on the
- * server hostname.
+ * in either the environment variable 'WP_ENVIRONMENT_TYPE' or can be set
+ * based on the server hostname.
  *
  * Common environment names are as follows, though you can use what you wish:
  *
